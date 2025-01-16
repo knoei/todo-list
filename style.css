@@ -248,11 +248,7 @@ i {
   cursor: pointer;
 }
 
-ul li.incompleted {
-  text-decoration: none;
-}
-
-ul li.completed {
+li.completed span {
   text-decoration: line-through;
   color: gray;
 }

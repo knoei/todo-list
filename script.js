@@ -42,7 +42,8 @@ function addTodoItem(id, text, checked) {
 
   const editBtn = document.createElement('i')
   editBtn.className = 'far fa-edit edit-item'
-  editBtn.addEventListener('click', () => {
+  editBtn.addEventListener('click', (event) => {
+    event.stopPropagation()
     const newText = prompt('Edit your task:', text)
     if (newText) {
       span.textContent = newText
@@ -51,7 +52,8 @@ function addTodoItem(id, text, checked) {
 
   const deleteBtn = document.createElement('i')
   deleteBtn.className = 'far fa-times-circle delete-item'
-  deleteBtn.addEventListener('click', () => {
+  deleteBtn.addEventListener('click', (event) => {
+    event.stopPropagation()
     listItem.remove()
   })
 
@@ -61,6 +63,12 @@ function addTodoItem(id, text, checked) {
   listItem.appendChild(checkbox)
   listItem.appendChild(span)
   listItem.appendChild(iconContainer)
+
+  listItem.addEventListener('click', (event) => {
+    if (event.target === checkbox) return
+    checkbox.checked = !checkbox.checked
+    listItem.className = checkbox.checked ? 'completed' : ''
+  })
 
   todoList.appendChild(listItem)
 }

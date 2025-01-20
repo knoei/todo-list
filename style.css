@@ -261,8 +261,44 @@ li.completed span {
   color: #fff;
 }
 
+.darkmode .greeting-msg {
+  margin-top: 200px;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.15rem;
+  color: #fff;
+  text-shadow: -2px 2px #7e57c2, -3px 3px #f48fb1;
+}
+
+.darkmode .title {
+  font-size: 3rem;
+  letter-spacing: 0.15rem;
+  color: #fff;
+  text-shadow: -2px 2px #7e57c2;
+}
+
 #error-message {
   color: red;
   font-size: 0.9em;
   margin-top: 5px;
+}
+
+.greeting-msg {
+  font-style: italic;
+  text-align: center;
+  margin: 200px;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.15rem;
+  color: #7e57c2;
+  text-shadow: -2px 2px #ef3550;
+}
+
+.title {
+  font-size: 3rem;
+  letter-spacing: 0.15rem;
+  color: #7e57c2;
+  text-shadow: -2px 2px #ef3550;
 }

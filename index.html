@@ -18,7 +18,10 @@
     <h1>TODO LIST</h1>
     <div class="main-container">
       <div class="form-container">
-        <input type="text" class="input-container" id="input-container" placeholder="Add a task!">
+        <div class="input-wrapper">
+          <input type="text" class="input-container" id="input-container" placeholder="Add a task!">
+          <span id="error-message" class="error-message"></span>
+        </div>
         <select class="filter">
           <option value="all">All</option>
           <option value="completed">Completed</option>

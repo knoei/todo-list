@@ -1,5 +1,6 @@
 const inputBox = document.getElementById('input-container')
 const todoList = document.getElementById('todo-item')
+const errorMessage = document.getElementById('error-message')
 
 const todos = [
   {
@@ -74,9 +75,24 @@ function addTodoItem(id, text, checked) {
 }
 
 inputBox.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter' && inputBox.value.trim() !== '') {
-    const newId = todos.length + 1
+  if (e.key === 'Enter') {
     const newTask = inputBox.value.trim()
+
+    if (newTask.length < 3) {
+      errorMessage.textContent = 'Task must be at least 3 characters long.'
+      inputBox.classList.add('error')
+      return
+    }
+    if (/^\d+$/.test(newTask)) {
+      errorMessage.textContent = 'Task cannot be only numbers.'
+      inputBox.classList.add('error')
+      return
+    }
+
+    errorMessage.textContent = ''
+    inputBox.classList.remove('error')
+
+    const newId = todos.length + 1
     todos.push({ id: newId, text: newTask, checked: false })
     addTodoItem(newId, newTask, false)
     inputBox.value = ''

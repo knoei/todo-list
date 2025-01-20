@@ -1,24 +1,15 @@
 const inputBox = document.getElementById('input-container')
 const todoList = document.getElementById('todo-item')
 const errorMessage = document.getElementById('error-message')
+const greetingMsg = document.getElementById('greeting-msg')
 
-const todos = [
-  {
-    id: 1,
-    text: 'buy groceries',
-    checked: false,
-  },
-  {
-    id: 2,
-    text: 'walk the dog',
-    checked: false,
-  },
-  {
-    id: 3,
-    text: 'prep dinner',
-    checked: false,
-  },
-]
+const todos = []
+
+function removeGreeting() {
+  if (greetingMsg) {
+    greetingMsg.remove()
+  }
+}
 
 todos.forEach(({ id, text, checked }) => {
   addTodoItem(id, text, checked)
@@ -91,6 +82,8 @@ inputBox.addEventListener('keypress', (e) => {
 
     errorMessage.textContent = ''
     inputBox.classList.remove('error')
+
+    removeGreeting()
 
     const newId = todos.length + 1
     todos.push({ id: newId, text: newTask, checked: false })

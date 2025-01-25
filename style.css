@@ -206,12 +206,9 @@ option {
 }
 
 .todo-item {
-  display: flex;
-  flex-direction: column;
+  margin-top: 20px; /* Space below the input box */
   list-style: none;
   padding: 0;
-  margin: 0;
-  gap: 10px;
 }
 
 .todo-list {
@@ -223,13 +220,15 @@ option {
   list-style: none;
 }
 
-li {
+.todo-item li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  background: var(--input-bgcolor);
   padding: 10px;
-  border-bottom: 1px solid var(--border-color);
+  margin-bottom: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
 }
 
 .icon-container {
@@ -301,4 +300,53 @@ li.completed span {
   letter-spacing: 0.15rem;
   color: #7e57c2;
   text-shadow: -2px 2px #ef3550;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: var(--button-color);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #443fa2;
+}
+
+.pagination ul li {
+  display: inline-block;
+  margin: 0 10px;
+  background: #ddd;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 35px;
+}
+
+.darkmode .pagination ul li {
+  background: #141414;
+}
+
+.darkmode .pagination ul li:hover {
+  background: var(--button-color);
 }
